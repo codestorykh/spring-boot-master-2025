@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern='{"timestamp":"%d{yyyy-MM-dd HH:mm:ss.SSS}","traceId":"%X{traceId}","spanId":"%X{spanId}","level":"%level","logger":"%logger{1}","message":"%msg","exception":"%ex{full}"}%n'
+                    charset="UTF-8"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
