@@ -4,6 +4,11 @@ logging:
   #  correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}] "
   #include-application-name: false
 management:
+  observations:
+    http:
+      server:
+        requests:
+          write-trace-header: true
   tracing:
     enabled: true
     sampling:
