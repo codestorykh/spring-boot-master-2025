@@ -15,7 +15,8 @@
 	<description>Spring Boot Master Class</description>
 	<modules>
 		<module>logging-sample</module>
-	</modules>
+        <module>java-redis</module>
+    </modules>
 
 	<packaging>pom</packaging>
 	<url/>
