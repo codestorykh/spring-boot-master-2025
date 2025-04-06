@@ -16,7 +16,9 @@
 	<modules>
 		<module>logging-sample</module>
         <module>java-redis</module>
-    </modules>
+        <module>redis-publisher</module>
+		<module>redis-subscriber</module>
+	</modules>
 
 	<packaging>pom</packaging>
 	<url/>

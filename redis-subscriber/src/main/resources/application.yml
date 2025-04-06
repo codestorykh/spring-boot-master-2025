@@ -1,0 +1,9 @@
+server:
+  port: 8283
+spring:
+  application:
+    name: redis-subscriber
+
+redis:
+  host: localhost
+  port: 6379

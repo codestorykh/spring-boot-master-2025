@@ -1,0 +1,9 @@
+server:
+  port: 8282
+spring:
+  application:
+    name: redis-publisher
+
+redis:
+  host: localhost
+  port: 6379

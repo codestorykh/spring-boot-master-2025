@@ -17,7 +17,7 @@ public class JavaRedisApplication {
     @Autowired
     private RedisString redisString;
 
-    @PostConstruct
+    //@PostConstruct
     public void init() {
         redisString.setStringValue("user:10009", "CodeStory");
         redisString.setStringValue("user:10009", "CodeStoryKH");
