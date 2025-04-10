@@ -1,4 +1,4 @@
-package com.codestorykh;
+package com.codestorykh.subscribe;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

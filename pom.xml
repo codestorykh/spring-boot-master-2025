@@ -18,7 +18,8 @@
         <module>java-redis</module>
         <module>redis-publisher</module>
 		<module>redis-subscriber</module>
-	</modules>
+        <module>redis-streams</module>
+    </modules>
 
 	<packaging>pom</packaging>
 	<url/>

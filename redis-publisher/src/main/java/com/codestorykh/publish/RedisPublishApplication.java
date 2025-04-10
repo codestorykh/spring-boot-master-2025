@@ -1,6 +1,6 @@
-package com.codestorykh;
+package com.codestorykh.publish;
 
-import com.codestorykh.service.RedisSimpleService;
+import com.codestorykh.publish.service.RedisSimpleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
