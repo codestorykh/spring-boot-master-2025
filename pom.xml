@@ -19,6 +19,7 @@
         <module>redis-publisher</module>
 		<module>redis-subscriber</module>
         <module>redis-streams</module>
+        <module>object-mapping</module>
     </modules>
 
 	<packaging>pom</packaging>
