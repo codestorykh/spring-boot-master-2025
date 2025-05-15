@@ -17,14 +17,14 @@ public class JavaRedisApplication {
     @Autowired
     private RedisString redisString;
 
-    //@PostConstruct
+    @PostConstruct
     public void init() {
         redisString.setStringValue("user:10009", "CodeStory");
         redisString.setStringValue("user:10009", "CodeStoryKH");
 
         //redisString.deleteStringValue("user:10009");
         
-        redisString.expireStringValue("user:10009", 10);
+       // redisString.expireStringValue("user:10009", 10);
         var value = redisString.getStringValue("user:10009");
         System.out.println("Value from Redis: " + value);
 

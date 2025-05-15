@@ -62,8 +62,4 @@ public class UserService {
         return userMapperUsingMapStruct.mapUserToUserDTO(user);
     }
 
-    //Convert UserDTO to User by using Orika
-    public UserDTO orikaMapUserToUserDTO(User user) {
-       //return userMapperUsingOrika.orikaMapUserToUserDTO(user);
-    }
 }

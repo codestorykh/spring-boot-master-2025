@@ -20,6 +20,7 @@
 		<module>redis-subscriber</module>
         <module>redis-streams</module>
         <module>object-mapping</module>
+        <module>java-generics</module>
     </modules>
 
 	<packaging>pom</packaging>
