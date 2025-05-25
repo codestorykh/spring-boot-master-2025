@@ -21,6 +21,7 @@
         <module>redis-streams</module>
         <module>object-mapping</module>
         <module>java-generics</module>
+        <module>rest-api-cache</module>
     </modules>
 
 	<packaging>pom</packaging>
