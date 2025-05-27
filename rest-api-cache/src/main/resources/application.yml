@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: rest-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/customer_service}
+    username: ${SPRING_DATASOURCE_USERNAME:codestorykh}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
