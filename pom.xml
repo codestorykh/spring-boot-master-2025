@@ -22,6 +22,7 @@
         <module>object-mapping</module>
         <module>java-generics</module>
         <module>rest-api-cache</module>
+        <module>spring-security-with-keycloak</module>
     </modules>
 
 	<packaging>pom</packaging>

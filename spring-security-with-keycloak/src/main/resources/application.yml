@@ -1,0 +1,44 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: spring-security-with-keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/myrealm}
+          jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8080/realms/myrealm/protocol/openid-connect/certs}
+
+keycloak:
+  auth-server-url: ${KEYCLOAK_URL:http://localhost:8080}
+  realm: ${KEYCLOAK_REALM:master}
+  resource: ${KEYCLOAK_CLIENT_ID:admin-cli}
+  admin:
+    username: ${KEYCLOAK_ADMIN_USERNAME:admin}
+    password: ${KEYCLOAK_ADMIN_PASSWORD:admin}
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    com.codestorykh: DEBUG
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+    info:
+      enabled: true
+    metrics:
+      enabled: true

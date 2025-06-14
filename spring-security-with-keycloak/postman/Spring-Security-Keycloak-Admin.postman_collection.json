@@ -1,0 +1,177 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+    "name": "Spring-Security-Keycloak-Admin",
+    "description": "Collection for testing Spring Security Keycloak Admin endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Public Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{api_url}}/api/v1/public/health",
+          "host": ["{{api_url}}"],
+          "path": ["api", "v1", "public", "health"]
+        },
+        "description": "Public health check endpoint - no authentication required"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Admin Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);",
+              "pm.environment.set(\"admin_token\", jsonData.access_token);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "{{client_id}}",
+              "type": "text"
+            },
+            {
+              "key": "username",
+              "value": "{{admin_username}}",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "{{admin_password}}",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{keycloak_url}}/realms/{{realm_name}}/protocol/openid-connect/token",
+          "host": ["{{keycloak_url}}"],
+          "path": [
+            "realms",
+            "{{realm_name}}",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        },
+        "description": "Get admin token from Keycloak"
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{api_url}}/api/v1/admin/dashboard",
+          "host": ["{{api_url}}"],
+          "path": ["api", "v1", "admin", "dashboard"]
+        },
+        "description": "Access admin dashboard endpoint"
+      },
+      "response": []
+    },
+    {
+      "name": "Actuator Health (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{api_url}}/api/actuator/health",
+          "host": ["{{api_url}}"],
+          "path": ["api", "actuator", "health"]
+        },
+        "description": "Check application health status - public access"
+      },
+      "response": []
+    },
+    {
+      "name": "Actuator Info (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{api_url}}/api/actuator/info",
+          "host": ["{{api_url}}"],
+          "path": ["api", "actuator", "info"]
+        },
+        "description": "Get application info - public access"
+      },
+      "response": []
+    },
+    {
+      "name": "Metrics (Admin Only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{admin_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{api_url}}/api/actuator/metrics",
+          "host": ["{{api_url}}"],
+          "path": ["api", "actuator", "metrics"]
+        },
+        "description": "Get application metrics - admin access only"
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "api_url",
+      "value": "http://localhost:8081",
+      "type": "string"
+    }
+  ]
+}
